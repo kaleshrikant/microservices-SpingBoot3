@@ -1,10 +1,13 @@
 package com.alibou.student.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
+@Table(name = "students", schema = "students_db")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,6 +16,7 @@ import lombok.*;
 public class Student {
 
     @Id
+    @GeneratedValue
     private Integer id;
 
     private String firstName;

@@ -1,24 +1,56 @@
-❯ sudo -u postgres psql
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| schools_db         |
+| students_db        |
+| sys                |
++--------------------+
+6 rows in set (0.01 sec)
 
-postgres=# CREATE USER shrikant WITH PASSWORD 'kale';
-CREATE ROLE
+mysql> use schools_db;
+Database changed
 
-students_db=# CREATE DATABASE schools_db OWNER shrikant;
-CREATE DATABASE
+mysql> show tables;
++----------------------+
+| Tables_in_schools_db |
++----------------------+
+| schools              |
+| schools_seq          |
++----------------------+
+2 rows in set (0.00 sec)
 
-students_db=# GRANT ALL PRIVILEGES ON DATABASE schools_db TO shrikant;
-GRANT
+mysql> select * from schools;
++----+------------------------+------------------------------+
+| id | email                  | name                         |
++----+------------------------+------------------------------+
+|  1 | ddhs@mh_schools.edu    | Shri Deorao Dada High School |
+|  2 | nec@mh_schools.edu     | New English Jr. College      |
+|  3 | vbm@mh_schools.edu     | Vidya Bharati Mahavidyalaya  |
+|  4 | met-bkc@mh_schools.edu | MET's Bhujbal Knowledge City |
++----+------------------------+------------------------------+
+4 rows in set (0.00 sec)
 
-students_db=# \c schools_db;
-You are now connected to database "schools_db" as user "postgres".
+mysql> use students_db;
+Database changed
 
-schools_db=# \l
-                                    List of databases
-    Name     |   Owner   | Encoding |   Collate   |    Ctype    |    Access privileges
--------------+-----------+----------+-------------+-------------+-------------------------
- postgres    | postgres  | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
- schools_db  | shrikant  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/shrikant           +
-             |           |          |             |             | shrikant=CTc/shrikant
- students_db | shrikant  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/shrikant           +
-       |           |          |             |             | shrikant=CTc/shrikant
-(2 rows)
+mysql> show tables;
++-----------------------+
+| Tables_in_students_db |
++-----------------------+
+| students              |
+| students_seq          |
++-----------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from students;
++----+------------------------+------------+-----------+-----------+
+| id | email                  | first_name | last_name | school_id |
++----+------------------------+------------+-----------+-----------+
+|  1 | kaleshrikant@live.com  | Shrikant   | Kale      |         1 |
+|  2 | prashukale13@gmail.com | Prashant   | Kale      |         2 |
++----+------------------------+------------+-----------+-----------+
+2 rows in set (0.00 sec)
