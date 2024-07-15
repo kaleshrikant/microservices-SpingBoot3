@@ -44,6 +44,9 @@ dependencies {
 		decorated with JAX-RS or Spring MVC annotations.
 	*/
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	/* Zipkin Server Dependency */
+	implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+	implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 }
 
 dependencyManagement {
