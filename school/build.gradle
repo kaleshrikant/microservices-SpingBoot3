@@ -38,6 +38,12 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	/* Declarative REST Client.
+		OpenFeign creates a dynamic implementation of an interface
+		decorated with JAX-RS or Spring MVC annotations.
+	*/
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 }
 
 dependencyManagement {

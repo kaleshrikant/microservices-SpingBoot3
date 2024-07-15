@@ -30,13 +30,20 @@ public class StudentController {
 
     @GetMapping("/students/{student-id}")
     @ResponseStatus(HttpStatus.FOUND)
-    public Student findStudent(@PathVariable Integer studentId) {
+    public Student findStudent(@PathVariable("student-id") Integer studentId) {
         return studentService.findStudent(studentId);
     }
 
     @DeleteMapping("/students/{student-id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteStudent(@PathVariable Integer studentId){
+    public void deleteStudent(@PathVariable("student-id") Integer studentId){
         studentService.deleteStudent(studentId);
+    }
+
+    @GetMapping("/students/schools/{school-id}")
+    public ResponseEntity<List<Student>> findAllStudentsBySchoolId(
+            @PathVariable("school-id") Integer schoolId
+    ) {
+        return ResponseEntity.ok(studentService.findAllStudentsBySchool(schoolId));
     }
 }
