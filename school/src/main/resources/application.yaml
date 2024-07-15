@@ -17,7 +17,7 @@ spring:
           connectTimeout: '5000'
   config:
     import: optional:configserver:http://localhost:8888
-    student-url: http://localhost:8090/api/v1/students
+    student-url: http://localhost:8222/api/v1/students
   application:
     name: school
   datasource:
